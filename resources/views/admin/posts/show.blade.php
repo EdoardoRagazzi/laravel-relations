@@ -6,6 +6,12 @@
                 <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
                   <div class="card-header">{{$post->title}}</div>
                     <div class="card-body">
+                      <h3>Category: 
+                        @if ($post->category)
+                        {{$post->category->name}}
+                          
+                        @endif
+                      </h3>
                       <h5 class="card-title">SLUG: {{$post->slug}}</h5>
                       <p class="card-text">{{$post->content}}</p>
                     </div>
