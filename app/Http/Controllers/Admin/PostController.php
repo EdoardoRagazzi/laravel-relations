@@ -29,9 +29,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Post $post)
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('post','categories'));
     }
 
     /**
@@ -108,7 +109,9 @@ class PostController extends Controller
     {
         $request->validate([
             'title'=> 'required|max:255',
-            'content'=> 'required'
+            'content'=> 'required',
+            'category_id' => 'nullable|exists:categories,id'
+
         ]);
        $data = $request->all();
 

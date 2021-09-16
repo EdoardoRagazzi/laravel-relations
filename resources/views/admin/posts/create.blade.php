@@ -32,6 +32,18 @@
         @enderror
    
       </div>
+      <label for="category"  class="form-label">Category</label>
+        {{-- Remeber the value  --}}
+        <select class="form-control" class="" name="category_id" id="category">
+            <option value="">--Select--</option>
+            @foreach($categories as $category)
+            
+            <option value="{{old('category_id',$category->id)}}"
+                @if ($category->id ==old('category_id',$post->category_id)) selected
+                    
+                @endif>{{old('name',$category->name)}}</option>
+            @endforeach
+        </select>
       <div class="mb-3">
         <label for="descrizione" class="form-label">Descrizione</label>
         <textarea class="form-control" type="text" name="content" cols="30" rows="10"  id="descrizione" >{{old('content')}}</textarea>

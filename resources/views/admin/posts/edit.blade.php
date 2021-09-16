@@ -22,6 +22,7 @@
    
     </div>
     <div class="mb-3">
+        
         <label for="category"  class="form-label">Category</label>
         {{-- Remeber the value  --}}
         <select class="form-control" class="" name="category_id" id="category">
@@ -29,7 +30,7 @@
             @foreach($categories as $category)
             
             <option value="{{old('category_id',$category->id)}}"
-                @if ($category->id ==old('category_id')) selected
+                @if ($category->id ==old('category_id',$post->category_id)) selected
                     
                 @endif>{{old('name',$category->name)}}</option>
             @endforeach
