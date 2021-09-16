@@ -20,7 +20,25 @@
         {{-- Remeber the value  --}}
         <input type="title" name="title" class="form-control" id="title" value="{{old('title',$post->title)}}" >
    
-      </div>
+    </div>
+    <div class="mb-3">
+        <label for="category"  class="form-label">Category</label>
+        {{-- Remeber the value  --}}
+        <select class="form-control" class="" name="category_id" id="category">
+            <option value="">--Select--</option>
+            @foreach($categories as $category)
+            
+            <option value="{{old('category_id',$category->id)}}"
+                @if ($category->id ==old('category_id')) selected
+                    
+                @endif>{{old('name',$category->name)}}</option>
+            @endforeach
+        </select>
+      
+   
+    </div>
+    
+
       <div class="mb-3">
         <label for="descrizione" class="form-label">Descrizione</label>
         {{-- Not value because is a TextArea --}}

@@ -12,5 +12,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+
+        // when  you wanna call all the seedeer together  -->writing only php artisan db:seed (general seeder)
+        // $this->call([
+        //     PostsTableSeeder::class,
+        //     CategoriesTableSeeder::class
+        // ]);
     }
 }
